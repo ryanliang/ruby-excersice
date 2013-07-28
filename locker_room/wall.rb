@@ -1,6 +1,6 @@
 module Gym
-	class Wall
-		attr_reader :length
+  class Wall
+    attr_reader :length
     attr_reader :width
     attr_reader :lockers
     attr_reader :long_term_locker_count
@@ -8,11 +8,11 @@ module Gym
     attr_reader :vacant_locker_count
 
 
-		def initialize(length, width)
-			@length = length
-			@width = width
-			@lockers = Array.new(length) { Array.new(width) }
-		end
+    def initialize(length, width)
+      @length = length
+      @width = width
+      @lockers = Array.new(length) { Array.new(width) }
+    end
 
     def put_locker_at_next_vacant_pos(locker)
       vacant_position = next_vacant_position
@@ -74,5 +74,5 @@ module Gym
           end
         end
       end
-	end    
+  end    
 end

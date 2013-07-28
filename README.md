@@ -3,7 +3,10 @@ Ruby Excercise
 
 In the locker room, there is one wall on which can be installed lockers.
 
-There are two types of lockers, long term rental and daily rental. A locker can be assigned to one owner.  Each owner has one name and address.
+There are two types of lockers, long term rental and daily rental.  An expiry day can be assigned to the long term rental, while the daily one is always set to
+expire at the end of today and cannot be changed.
+
+A locker can be assigned to one owner.  Each owner has one name and address.
 
 Code in ruby to represent the above scenerio.  Implement the following methods:
 

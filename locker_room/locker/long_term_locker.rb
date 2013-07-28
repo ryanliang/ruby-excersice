@@ -8,7 +8,7 @@ module Gym
 		class LongTermLocker < LockerBase
       attr_accessor :expiry_date
 
-      def intialize(owner, expiry_date)
+      def initialize(owner, expiry_date)
         super(owner)
         self.expiry_date = expiry_date
       end

@@ -5,7 +5,7 @@ module Gym
       attr_accessor :owner
       attr_reader :expiry_date
 
-      def intilaize(owner)
+      def initialize(owner)
         self.owner = owner        
       end
 		end

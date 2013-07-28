@@ -1,7 +1,7 @@
 module Gym
 	class Wall
-		attr_accessor length
-		attr_accessor width
+		attr_reader :length
+		attr_reader :width
 
 		def initialize(length, width)
 			self.length = length

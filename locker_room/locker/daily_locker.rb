@@ -6,8 +6,7 @@ require 'date'
 module Gym
   module Locker
 
-    class DailyLocker < LockerBase      
-
+    class DailyLocker < LockerBase
       def initialize(owner)
         super(owner)
         @expiry_date = Date.today

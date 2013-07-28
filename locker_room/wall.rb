@@ -46,21 +46,21 @@ module Gym
     end
 
     def vacant_locker_count
-      locker_count_by_type
+      count_locker_by_type
       @vacant_locker_count
     end
 
     def daily_locker_count
-      locker_count_by_type
+      count_locker_by_type
       @daily_locker_count
     end
 
     def long_term__locker_count
-      locker_count_by_type
+      count_locker_by_type
       @long_term__locker_count
     end
 
-    # private
+    private
       def vacant_at?(x, y)
         position_within_boundary?(x, y) &&
         @lockers[x][y].nil?
@@ -82,7 +82,8 @@ module Gym
         nil # not found
       end
 
-      def locker_count_by_type
+      # TODO: Imporove and iterate thourgh array only  if it's changed.
+      def count_locker_by_type
         @long_term_locker_count = 0
         @daily_locker_count = 0
         @vacant_locker_count = 0
@@ -100,6 +101,7 @@ module Gym
           end
         end
       end
+
     # end private
   end
 end

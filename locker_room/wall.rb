@@ -1,11 +1,15 @@
+require_relative 'locker/daily_locker'
+require_relative 'locker/long_term_locker'
+
 module Gym
   class Wall
+    include Locker
     attr_reader :length
     attr_reader :width
     attr_reader :lockers
-    attr_reader :long_term_locker_count
-    attr_reader :daily_locker_count
-    attr_reader :vacant_locker_count
+    # attr_reader :long_term_locker_count
+    # attr_reader :daily_locker_count
+    # attr_reader :vacant_locker_count
 
 
     def initialize(length, width)
@@ -41,6 +45,21 @@ module Gym
       nil # not found
     end
 
+    def vacant_locker_count
+      locker_count_by_type
+      @vacant_locker_count
+    end
+
+    def daily_locker_count
+      locker_count_by_type
+      @daily_locker_count
+    end
+
+    def long_term__locker_count
+      locker_count_by_type
+      @long_term__locker_count
+    end
+
     # private
       def vacant_at?(x, y)
         position_within_boundary?(x, y) &&
@@ -63,16 +82,24 @@ module Gym
         nil # not found
       end
 
-      def collect_locker_count_by_type
+      def locker_count_by_type
         @long_term_locker_count = 0
         @daily_locker_count = 0
         @vacant_locker_count = 0
 
         @lockers.each_index do |x|
           @lockers[x].each_index do |y|
-          # add the count here is_a?           
+            case
+            when @lockers[x][y].nil?  
+              @vacant_locker_count = @vacant_locker_count + 1
+            when @lockers[x][y].is_a?(Locker::DailyLocker)
+              @daily_locker_count = @daily_locker_count + 1
+            when @lockers[x][y].is_a?(Locker::LongTermLocker)
+              @long_term_locker_count = @long_term_locker_count + 1
+            end
           end
         end
       end
-  end    
+    # end private
+  end
 end

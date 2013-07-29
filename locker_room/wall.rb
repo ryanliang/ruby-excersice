@@ -24,7 +24,8 @@ module Gym
     end
 
     def put_locker_at(locker, x, y)
-      @lockers[x][y] = locker if position_within_boundary(x, y) && vacant_at?(x, y)
+      if position_within_boundary(x, y) && vacant_at?(x, y)
+        @lockers[x][y] = locker
     end
 
     def owner_name_at(x, y)

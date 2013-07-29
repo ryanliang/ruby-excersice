@@ -6,7 +6,7 @@ Then /^I create a daily locker with the same owner$/ do
   @daily_locker = DailyLocker.new(@owner)
 end
 
-Then /^the locker should be created$/ do
+Then /^the daily locker should be created$/ do
   @daily_locker.should_not eq nil
 end
 

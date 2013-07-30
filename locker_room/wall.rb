@@ -93,11 +93,11 @@ module Gym
           @lockers[x].each_index do |y|
             case
             when @lockers[x][y].nil?  
-              @vacant_locker_count = @vacant_locker_count + 1
+              @vacant_locker_count += 1
             when @lockers[x][y].is_a?(Locker::DailyLocker)
-              @daily_locker_count = @daily_locker_count + 1
+              @daily_locker_count += 1
             when @lockers[x][y].is_a?(Locker::LongTermLocker)
-              @long_term_locker_count = @long_term_locker_count + 1
+              @long_term_locker_count += 1
             end
           end
         end
